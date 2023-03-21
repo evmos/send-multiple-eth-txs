@@ -28,3 +28,7 @@ export const createSignedEthTx = async (nonce: number) => {
 
   return signedTx
 }
+
+export const queryEthHash = async (hash: string) => {
+  return await provider.getTransactionReceipt(hash)
+}
