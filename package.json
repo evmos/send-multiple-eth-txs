@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/src/broadcast.js"
+    "start": "tsc && node dist/src/demo.js"
   },
   "keywords": [],
   "author": "",
