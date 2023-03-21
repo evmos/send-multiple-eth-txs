@@ -12,15 +12,20 @@ const restOptions = {
   headers: { 'Content-Type': 'application/json' },
 }
 
-export const fetchSenderInfo = async () => {
-  const address = ethToEvmos(wallet.address)
-
+const fetchSenderInfo = async (address: string) => {
   const queryEndpoint = `${restEndpoint}${generateEndpointAccount(address)}`
   const rawResult = await fetch(queryEndpoint, restOptions)
 
   const result = (await rawResult.json()) as AccountResponse
 
-  console.log(result)
-
   return result
+}
+
+export const fetchSenderNonce = async () => {
+  const address = ethToEvmos(wallet.address)
+  const result = await fetchSenderInfo(address)
+
+  const sequence = result.account.base_account.sequence
+
+  return parseInt(sequence, 10)
 }

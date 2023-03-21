@@ -15,21 +15,9 @@ const { ExtensionOptionsEthereumTx } = Proto.Ethermint.EVM.Tx
 
 export const wrapEthTxsInCosmosTx = (txs: Transaction[]) => {
   const msgs = txs.map(ethTx => ethToMsgEthereumTx(ethTx))
-
   const [fees, gas] = computeFeesAndGas(txs)
 
-  const payload = createTransactionWithMultipleMessages(
-    msgs,
-    '', // Memo is not needed
-    fees,
-    denom,
-    parseInt(gas, 10),
-    '', // Algo can be blank
-    '', // PubKey can be blank
-    0, // Sequence is not needed
-    0, // Account number is not needed
-    chainInfo.cosmosChainId,
-  )
+  const payload = createTx(msgs, fees, gas)
 
   const { signDirect } = payload
 
@@ -53,6 +41,21 @@ const computeFeesAndGas = (txs: Transaction[]) => {
   })
 
   return [totalFee.toString(), totalGas.toString()]
+}
+
+const createTx = (msgs: any[], fees: string, gas: string) => {
+  return createTransactionWithMultipleMessages(
+    msgs,
+    '', // Memo is not needed
+    fees,
+    denom,
+    parseInt(gas, 10),
+    '', // Algo can be blank
+    '', // PubKey can be blank
+    0, // Sequence is not needed
+    0, // Account number is not needed
+    chainInfo.cosmosChainId,
+  )
 }
 
 const formatTxFields = (

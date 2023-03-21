@@ -22,9 +22,9 @@ export const createSignedEthTx = async (nonce: number) => {
 
   const rlpSignedTx = await wallet.signTransaction(tx)
 
-  console.log(rlpSignedTx)
+  const signedTx = parse(rlpSignedTx)
+  console.log('Ethereum Transaction:')
+  console.log(signedTx)
 
-  console.log(parse(rlpSignedTx))
-
-  return parse(rlpSignedTx)
+  return signedTx
 }
