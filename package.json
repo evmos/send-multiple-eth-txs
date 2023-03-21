@@ -1,0 +1,29 @@
+{
+  "name": "broadcast-eth-txs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node dist/src/broadcast.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ethersproject/bignumber": "^5.7.0",
+    "@ethersproject/providers": "^5.7.2",
+    "@ethersproject/rlp": "^5.7.0",
+    "@ethersproject/signing-key": "^5.7.0",
+    "@ethersproject/transactions": "^5.7.0",
+    "@ethersproject/units": "^5.7.0",
+    "@ethersproject/wallet": "^5.7.0",
+    "@evmos/proto": "^0.2.0",
+    "@evmos/provider": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.5",
+    "typescript": "^5.0.2"
+  }
+}

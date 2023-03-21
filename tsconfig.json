@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es2015",
+    "module": "es2022",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "lib": [
+      "DOM",
+      "es2019",
+      "es2021"
+    ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
